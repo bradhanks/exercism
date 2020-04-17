@@ -1,12 +1,15 @@
-defmodule Bob do
-  @bobsays [
-    {question: "Sure."},
-    {yell: "Whoa, chill out!"},
-    {yellquestion: "Calm down, I know what I'm doing!"},
-    {whitespace: "Fine. Be that way!"},
-    {default: "Whatever."}
-  ]
 
+# ? -> 'Sure.'
+
+# ! or all caps (any letters) -> 'Whoa, chill out!' .
+
+# all cps and ? -> 'Calm down, I know what I'm doing!'
+
+# \W 'Fine. Be that way!'
+
+# 'Whatever.' to anything else.
+
+defmodule Bob do
   def hey(input) do
     cond do
       true -> raise "Your implementation goes here"
