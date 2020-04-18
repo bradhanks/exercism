@@ -9,4 +9,6 @@
 **config/*.secret.exs
 **/.elixir_ls/
 
+**/node_modules
+**/.exercism
 
