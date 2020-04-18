@@ -1,8 +1,19 @@
-//
-// This is only a SKELETON file for the 'RNA Transcription' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
+const toRna = (string) => {
+  let stringNew = '';
+  for(let rna of string){
+    stringNew = stringNew + transcribe(rna);
+  }
 
-export const toRna = () => {
-  throw new Error("Remove this statement and implement this function");
+  return stringNew;
 };
+
+const transcribe = (block) => {
+  switch(block){
+    case "C": return "G";
+    case "G": return "C";
+    case "T": return "A";
+    case "A": return "U";
+  }
+};
+
+transcribe("CGAT");
