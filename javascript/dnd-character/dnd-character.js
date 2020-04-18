@@ -37,4 +37,15 @@ export class Character {
   get hitpoints() {
     throw new Error("Remove this statement and implement this function");
   }
+
+ 
+}
+
+export class Die {
+  constructor(rolls){
+    this.values = [1,2,3,4,5,6];
+    this.numberRolls = rolls;
+  }
+
+  
 }
