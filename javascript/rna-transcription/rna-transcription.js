@@ -1,19 +1,12 @@
-const toRna = (string) => {
-  let stringNew = '';
-  for(let rna of string){
-    stringNew = stringNew + transcribe(rna);
-  }
+export const toRna = (string) => {
+    return [...string].map(x => rnaLookup(x)).join("");
+}
 
-  return stringNew;
-};
+const rnaLookup = (rna) => rnaTable[rna] || '';
 
-const transcribe = (block) => {
-  switch(block){
-    case "C": return "G";
-    case "G": return "C";
-    case "T": return "A";
-    case "A": return "U";
-  }
-};
-
-transcribe("CGAT");
+export const rnaTable = {
+    "C": "G",
+    "G": "C",
+    "T": "A",
+    "A": "U" 
+}
