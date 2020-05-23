@@ -1,2 +1,2 @@
 def two_fer(name="you"):
-    print('One for %s, one for me./n'% name)
+    return f'One for {name}, one for me.'
