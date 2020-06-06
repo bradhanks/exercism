@@ -1,14 +1,8 @@
-String.prototype.cast = function() {
-  return this.toLowerCase().replace(/[^a-z]/g, "");
-}
-
 export const isPangram = (input) => {
-  const inputSet = new Set();
-  const castInput = input.cast();
-  
-  for(let i in castInput){
-    inputSet.add(castInput[i]);
-  }
+  return new Set(input.toLowerCase().match(/[a-z]/g)).size === 26;
 
-  return inputSet.size == 27;
+  // const inputSet = new Set(input.toLowerCase().replace(/[^a-z]/g, "").match(/[a-z]/g));
+  //console.log(inputSet);
+  // return inputSet === 26;
+  //return inputSet.size == 27;
 }
