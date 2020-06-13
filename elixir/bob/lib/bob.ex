@@ -1,23 +1,19 @@
 defmodule Bob do
 
-@functions [isquestion(x),
-            isyell(x),
-            isangryquestion(x),
-            ]
-
-  def reply(msg) do
-    msg
-    |> String.trim |> parse(@messages, "", _match_found = false)
-  end
-  def isquestion(msg) do
-    msg
-    |>String.trim
-    |>String.ends_with?("?")
+  def hey(input) do
+    input = String.trim input
+    cond do
+      silent?(input) -> "Fine. Be that way!"
+      shouting?(input) && question?(input) && letters?(input) -> "Calm down, I know what I'm doing!"
+      question?(input) -> "Sure."
+      shouting?(input) && letters?(input) -> "Whoa, chill out!"
+      true -> "Whatever."
+    end
   end
 
-  def isangryquestion(msg), do: isquestion(msg) && isangry(msg)
-  def isangry(msg), do: msg == String.upcase(msg)
-  def isyell
-
+defp silent?(input), do: input === ""
+defp letters?(input), do: String.upcase(input) != String.downcase(input)
+defp shouting?(input), do: String.upcase(input) === input
+defp question?(input), do: String.ends_with?(input, "?")
 
 end
