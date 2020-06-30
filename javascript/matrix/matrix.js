@@ -1,18 +1,19 @@
-//
-// This is only a SKELETON file for the 'Matrix' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
+import { transpose } from 'mathjs'
+const parseRow = row => row.split(' ').map(Number);
+const parseRows = rows => rows.split("\n").map(parseRow);
+
+const parseColumn = column => column.split("\n").map(parseRow);
+
+
 
 export class Matrix {
-  constructor(raw) {
-    this.matrix = raw.split("\n").map(x => x.split(" ").map(x => parseInt(x)));
-  }
+  constructor(raw) { this.raw = raw; }
 
   get rows() {
-    return this.matrix;
+    return this._rows_ = this._rows_ ||  parseRows(this.raw);
   }
 
   get columns() {
-    return this.matrix[0].map((_, colIndex) => this.matrix.map(row => row[colIndex]));
+    return  this._columns_ = this._columns_ || transpose(this.rows);
   }
 }

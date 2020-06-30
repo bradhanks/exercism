@@ -32,5 +32,8 @@
     "lint-test": "eslint . && jest --no-cache ./* "
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "mathjs": "^7.0.2",
+    "memoizer": "^0.2.3"
+  }
 }
