@@ -1,24 +1,19 @@
 export const hey = (message) => {
   message = message.trim();
-  switch (True) {
-    case silent(message):
-      return "Fine. Be that way!";
-      break;
-    case (shouting(message) && question(message) && letters(message)):
-      return "Calm down, I know what I'm doing!";
-      break;
-    case question(message):
-      return "Sure.";
-      break;
-    case (shouting(message) && letters(message)):
-      return "Whoa, chill out!";
-      break;
-    default:
-      return "Whatever.";
-  }
+  return ANSWERS
+    .find(x => x.test(message))
+    .answer;
 };
 
-const silent = (input) => { return input == "";}
-const letters = (input) => { return  input.toUpperCase() != input.toLowerCase(); }
-const shouting = (input) => { return input.toUpperCase() == input; }
-const question = (input) => { return input[-1] == '?'; }
+const silent = input => input === "";
+const letters = input => input.toUpperCase() !== input.toLowerCase(); 
+const shouting = input => input.toUpperCase() === input; 
+const question = input => input[input.length - 1] === '?'; 
+
+const ANSWERS = [
+  { answer: "Fine. Be that way!", test: silent },
+  { answer: "Calm down, I know what I'm doing!", test: message => shouting(message) && question(message) && letters(message) },
+  { answer: "Sure.", test: question },
+  { answer: "Whoa, chill out!", test: message => shouting(message) && letters(message) },
+  { answer: "Whatever.", test: () => true }
+];
