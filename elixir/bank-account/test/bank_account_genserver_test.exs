@@ -1,4 +1,4 @@
-defmodule BankAccountTest do
+defmodule BankAccountGenServerTest do
   use ExUnit.Case
 
   setup do
