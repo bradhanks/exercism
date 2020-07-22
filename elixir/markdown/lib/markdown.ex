@@ -3,8 +3,7 @@ defmodule Markdown do
   def parse(string) do
     string
     |> String.split("\n")
-    |> Enum.map(fn line -> parse_line(line) end)
-    |> Enum.join()
+    |> Enum.map_join(&parse_line/1)
     |> String.replace("<li>", "<ul>" <> "<li>", global: false)
     |> String.replace_suffix("</li>", "</li>" <> "</ul>")
   end
