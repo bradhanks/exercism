@@ -1,15 +1,14 @@
-const gigasecondsInMilliseconds: number = 10 ** 9 * 1000;
-
 export default class Gigasecond {
-  inputDate: Date;
-  dateMillisecs: number;
+  value: Date;
 
-  constructor(inputDate: Date) {
-    this.inputDate = inputDate;
-    this.dateMillisecs = inputDate.getTime();
+  constructor(startDate: Date) {
+    this.value = startDate;
   }
 
-  static gigasecondsInMilliseconds: number = 10 ** 9 * 1000;
+  private static gigaseconds: number = 10 ** 9;
 
-  date = (): Date => new Date(this.dateMillisecs + gigasecondsInMilliseconds);
+  private dateInMilliseconds = (): number => this.value.getTime();
+  private gigasecsInMillisecs = () : number => Gigasecond.gigaseconds * 1000;
+
+  date = (): Date => new Date(this.dateInMilliseconds() + this.gigasecsInMillisecs());
 }

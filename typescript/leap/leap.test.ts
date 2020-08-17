@@ -1,4 +1,4 @@
-import { isLeapYear } from "./leap";
+import { isLeapYear } from "./leap-new";
 
 describe("A leap year", () => {
   it("is not very common", () => {
